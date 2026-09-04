@@ -1,18 +1,19 @@
 # Google Code Review Skill
 
-Google's official code review best practices, packaged as an AI agent skill.
+Google's written code review standard for AI agents — not ad-hoc AI reviews with no standard.
 
-This skill teaches AI coding agents to apply Google's code review guidelines when reviewing code, preparing code for review, writing CL/PR descriptions, handling reviewer feedback, and resolving code review conflicts.
+Most AI reviews are vibes-based: nitpicky comments, no consistent bar, no author guidance. This skill installs Google's actual engineering standard, in both reviewer + author modes.
 
-## Contents
+## Why
 
-- **`skills/google-code-review/`** — The skill files
-  - `SKILL.md` — Main skill instructions (both reviewer and author modes)
-  - `references/reviewer-guide.md` — Full reviewer guide (standard, what to look for, navigating CLs, speed, comments, pushback)
-  - `references/developer-guide.md` — Full developer guide (CL descriptions, small CLs, handling comments)
-  - `references/emergencies.md` — Emergency definitions and policies
+- **Without it:** generic AI review comments, inconsistent bar, slow back-and-forth, bad CL descriptions.
+- **With it:** Google's documented bar — design, functionality, complexity, tests, naming, comments, style, docs — plus speed, courtesy, and how to resolve pushback.
+- **Author mode too:** write good CL/PR descriptions, keep CLs small, prepare code for review, handle reviewer feedback without friction.
+- **Emergencies covered:** what counts as a real emergency and what process still applies.
 
-## Installation
+Source: [Google's Engineering Practices documentation](https://github.com/google/eng-practices), licensed under CC-By 3.0.
+
+## Install
 
 ```bash
 npx skills add instax-dutta/google-code-review
@@ -24,15 +25,29 @@ Or for Claude Code / opencode:
 npx skills add instax-dutta/google-code-review -g -y
 ```
 
-## Usage
+## How an agent uses it
 
-Once installed, the skill triggers automatically when you:
+Triggers automatically when you:
 
 - Ask for a code review on your PR/CL
 - Ask how to write good commit/PR descriptions
 - Ask how to prepare code for review
 - Ask about code review standards and processes
 - Ask how to handle pushback from a reviewer
+
+Two modes:
+
+- **Reviewer:** standard, what to look for, navigating CLs, review speed, writing comments, handling pushback
+- **Author:** CL descriptions, small CLs, handling reviewer comments + emergencies
+
+## Proof
+
+- Based directly on `google/eng-practices`
+- Ships 3 reference guides: `reviewer-guide.md` + `developer-guide.md` + `emergencies.md`
+- Covers reviewer behavior AND developer workflow, not just linting
+- Same CC-By 3.0 source Google engineers actually use
+
+If this saved you a bad review, star it.
 
 ## Source Material
 
